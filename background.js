@@ -1,7 +1,5 @@
 console.log("BACKGROUND IS GOOD");
 
-const API_URL = "https://openrouter.ai/api/v1/chat/completions";
-const API_KEY = "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";  // Replace with your real key
 let gameType = null;
 let gameState = null; 
 let firstTime = true;

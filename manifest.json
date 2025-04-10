@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "NYT Games Solver",
+  "version": "1.0",
+  "description": "beating all the ny games with no help from ai",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["https://www.nytimes.com/games/*", "https://www.nytimes.com/crosswords/game/*", "https://openrouter.ai/*, https://api.datamuse.com/*, https://wordledictionary.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.nytimes.com/games/*", "https://www.nytimes.com/crosswords/game/*", "https://openrouter.ai/*, https://api.datamuse.com/*, https://wordledictionary.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+        "resources": ["Words.txt"],
+        "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}
